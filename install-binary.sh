@@ -7,7 +7,9 @@ case $c in y|Y) ;; *) exit ;; esac
 
 #install binary
 cd /root
-# add install cmds here
+apt install npm
+npm install -g synchronizer-cli
+synchronize init
 
 #create env
 cd $path
