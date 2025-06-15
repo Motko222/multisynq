@@ -6,7 +6,7 @@ json=/root/logs/report-$folder
 source /root/.bash_profile
 source $path/env
 
-version=$()
+version=$(/usr/local/bin/synchronize -V)
 service=$(sudo systemctl status $folder --no-pager | grep "active (running)" | wc -l)
 errors=$(journalctl -u $folder.service --since "1 hour ago" --no-hostname -o cat | grep -c -E "rror|ERR")
 
