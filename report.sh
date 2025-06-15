@@ -33,7 +33,6 @@ cat >$json << EOF
         "version":"$version",
         "status":"$status",
         "message":"$message",
-        "service":"$service",
         "errors":"$errors",
         "height":"",
         "m1":"total=$total",
