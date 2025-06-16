@@ -41,7 +41,7 @@ cat >$json << EOF
         "url":"",
         "url1":"",
         "url2":"",
-        "wallet":""    
+        "wallet":"$WALLET"    
   }
 }
 EOF
