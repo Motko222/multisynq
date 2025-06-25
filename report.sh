@@ -6,11 +6,13 @@ json=/root/logs/report-$folder
 source /root/.bash_profile
 source $path/env
 
-version=$(/usr/local/bin/synchronize -V)
+[ -z $EXEC ] && exec=/usr/local/bin/synchronize || exec=$EXEC
+
+version=$($exec -V)
 service=$(sudo systemctl status $folder --no-pager | grep "active (running)" | wc -l)
 errors=$(journalctl -u $folder.service --since "1 hour ago" --no-hostname -o cat | grep -c -E "rror|ERR")
 
-synchronize points > /root/logs/multisync-points
+$exec points > /root/logs/multisync-points
 total=$(cat /root/logs/multisync-points | grep "Total Points:" | awk '{print $NF}')
 
 status="ok" && message=""
