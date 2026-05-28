@@ -29,6 +29,10 @@ echo "--- Backing up scripts (no .git) ---"
 mkdir -p "$BACKUP_DIR"
 rsync -a --exclude='.git' "$SCRIPTS_DIR/" "$BACKUP_DIR/" && echo "backed up to $BACKUP_DIR"
 
+echo "--- Backing up synchronizer-cli config ---"
+mkdir -p "/root/backup/synchronizer-cli"
+rsync -a "$HOME/.synchronizer-cli/" "/root/backup/synchronizer-cli/" && echo "backed up to /root/backup/synchronizer-cli"
+
 echo "--- Removing scripts directory ---"
 rm -rf "$SCRIPTS_DIR" && echo "removed $SCRIPTS_DIR"
 
